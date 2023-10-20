@@ -11,13 +11,13 @@ var pokemonList = [
 //Classifying pokemons by height by looping through the array pokemonList
 for (let i = 0; i < pokemonList.length; i++) {
     if (pokemonList[i].height < 0.5) {
-        document.write(pokemonList[i].name + "'s height is " + pokemonList[i].height + " m. It's a small pokemon.\n");
+        document.write(pokemonList[i].name + "'s height is " + pokemonList[i].height + " m. It's a small pokemon.");
     }
     else if (pokemonList[i].height >= 0.5 && pokemonList[i].height <= 1.5) {
-        document.write(pokemonList[i].name + "'s height is " + pokemonList[i].height + " m. It's an average sized pokemon.\n");
+        document.write(pokemonList[i].name + "'s height is " + pokemonList[i].height + " m. It's an average sized pokemon.");
         
     } else {
-        document.write(pokemonList[i].name + "'s height is " + pokemonList[i].height + " m. It's a large pokemon.\n");
-    }   
+        document.write(pokemonList[i].name + "'s height is " + pokemonList[i].height + " m. It's a large pokemon.");
+    }    
 }
 
