@@ -8,6 +8,7 @@ var pokemonList = [
     {name: "Rattata", height: 0.3, types: "normal", abilities: ["Run-away", "Hustle", "Guts"]}
 ];
 
+//Classifying pokemons by height by looping through the array pokemonList
 for (let i = 0; i < pokemonList.length; i++) {
     if (pokemonList[i].height < 0.5) {
         document.write(pokemonList[i].name + "'s height is " + pokemonList[i].height + " m. It's a small pokemon.\n");
