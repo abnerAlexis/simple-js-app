@@ -1,4 +1,4 @@
-//IIEF    
+//IIFE    
 let pokemons = (function () {
     // array of objects
     var pokemonList = [
@@ -44,3 +44,5 @@ let pokemons = (function () {
 })();
 //Internal method call
 pokemons.internalMethod();
+let allPokemon = pokemons.getAll();
+window.write(allPokemon);
