@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 25px;
+    padding: 25px;
+    max-width: 700px;
+    background-color: rgb(2, 2, 33);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: bisque;
+    border: 1px solid bisque;
+}
+
+h1 {
+    font-size: 45px;
+    margin: 25px 10px;
+}
+p {
+    font-size: 25px;
+}
