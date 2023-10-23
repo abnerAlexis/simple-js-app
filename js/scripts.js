@@ -23,11 +23,23 @@ let pokemons = (function () {
         }
         document.write(`<p>${pokemon.name} is ${pokemon.height} m. It is a ${pokemonSize} pokemon.</p><br>`);
     }
+
+    //Get all pokemon
+    function getAll() {
+        return pokemonList;
+    }
+
+    //Add new pokemon
+    function add(pokemon) {
+        pokemonList.push(pokemon);
+    }
     //Returning the iteration of pokemonList. 
     return {
         internalMethod: function () {
             pokemonList.forEach(displayPokemonbySize);
-        }
+        },
+        getAll: getAll,
+        add: add,
     };
 })();
 //Internal method call
