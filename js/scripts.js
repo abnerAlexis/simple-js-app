@@ -42,7 +42,15 @@ let pokemons = (function () {
         add: add,
     };
 })();
+
+//Add new pokemon
+pokemons.add({
+    name: "Pikachu",
+    height: 0.4,
+    types: "electric",
+    abilities: ["Static", "Lightning Rod"],
+  });
+
 //Internal method call
 pokemons.internalMethod();
-let allPokemon = pokemons.getAll();
-window.write(allPokemon);
+document.write(pokemons.getAll());
