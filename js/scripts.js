@@ -46,7 +46,7 @@ var pokemonRepository = (function () {
     let listPokemon = document.createElement('li');
     let button = document.createElement('button');
     button.innerText = pokemon.name;
-    button.className = 'button-class'; // Corrected class assignment
+    button.className = 'button-class';
     listPokemon.appendChild(button);
     pokemonList.appendChild(listPokemon);
   });
