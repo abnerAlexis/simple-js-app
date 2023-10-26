@@ -1,19 +1,19 @@
 /* Add some basic styling */
 body {
-    font-family: Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #001421;
+  font-family: Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #001421;
 }
 
 h1 {
-    background-color: rgb(243, 204, 158);
-    color: rgb(56, 28, 8);
-    font-size: 50px;
-    text-align: center;
-    height: 100px;
-    padding: 10px;
-    padding-top: 50px;
+  background-color: rgb(243, 204, 158);
+  color: rgb(56, 28, 8);
+  font-size: 50px;
+  text-align: center;
+  height: 100px;
+  padding: 10px;
+  padding-top: 50px;
 }
 
 hr {
@@ -21,41 +21,41 @@ hr {
 }
 
 button {
-    margin: 10px;
-    width: 300px;
-    font-size: 26px;
+  margin: 10px;
+  width: 300px;
+  font-size: 26px;
 }
 
 ul.pokemon-list {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 li {
-    margin: 5px;
+  margin: 5px;
 }
 
 button.button-class {
-    background-color: #b93100;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
+  background-color: #b93100;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
 button.button-class:hover {
-    background-color: #cd6621;
+  background-color: #cd6621;
 }
 
 /* Media query for smaller screens */
 @media (max-width: 768px) {
   h1 {
-      font-size: 36px;
-      padding-top: 30px;
+    font-size: 36px;
+    padding-top: 30px;
   }
-  
+
   button {
-      width: 50%;
+    width: 50%;
   }
 }

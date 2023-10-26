@@ -1,3 +1,4 @@
+//Array of pokemon objects
 var pokemonRepository = (function () {
   let repository = [
     { name: "Bellossom", height: 0.4, types: "grass", abilities: ["Chlorophyll", "Healer"] },
@@ -8,6 +9,7 @@ var pokemonRepository = (function () {
     { name: "Rattata", height: 0.3, types: "normal", abilities: ["Run-away", "Hustle", "Guts"] },
   ];
 
+  //Type check
   function add(pokemon) {
     if (typeof pokemon === 'object'
       && 'name' in pokemon
@@ -20,14 +22,29 @@ var pokemonRepository = (function () {
     }
   }
 
+  //This method adds an event listener
+  function addEventListener(button, pokemon) {
+    button.addEventListener('click', pokemon);
+  }
+
+  //Adding list items.
   function addListItem(pokemon) {
     let pokemonList = document.querySelector(".pokemon-list");
     let listpokemon = document.createElement("li");
     let button = document.createElement("button");
+    
+    //Method call to add an event listener
+    addEventListener(button, showDetails(pokemon));
+
     button.innerText = pokemon.name;
     button.classList.add("button-class");
     listpokemon.appendChild(button);
     pokemonList.appendChild(listpokemon);
+  }
+
+  //Will show more information at a button click. //  TO DO
+  function showDetails(pokemon) {
+    console.log(pokemon.name);
   }
 
   function getAll() {
@@ -38,11 +55,12 @@ var pokemonRepository = (function () {
     add: add,
     getAll: getAll,
     addListItem: addListItem,
+    showDetails: showDetails,
   };
 })();
 
 // console.log(pokemonRepository.getAll());
-
+//adding a new pokemon to pokemonRepository
 pokemonRepository.add({
   name: "Pikachu",
   height: 0.4,
