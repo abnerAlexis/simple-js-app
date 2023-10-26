@@ -13,7 +13,8 @@ let pokemonRepository = (function () {
             typeof pokemon === "object" &&
             "name" in pokemon &&
             "height" in pokemon &&
-            "types" in pokemon
+            "types" in pokemon &&
+            "abilities" in pokemon
         ) {
             repository.push(pokemon);
         } else {
