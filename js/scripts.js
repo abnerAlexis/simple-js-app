@@ -31,12 +31,12 @@ let pokemonRepository = (function () {
     }
 
     function showLoading() {
-      //TO DO
       console.log("Loading");
     }
 
+    //Done message is to test
     function hideLoadingMessage() {
-      console.log("");
+      console.log("Done!");
     }
 
 // Promise function. Fetch function requests the pokemonList from the API
