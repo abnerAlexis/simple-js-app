@@ -30,8 +30,17 @@ let pokemonRepository = (function () {
       });
     }
 
+    function showLoading() {
+      //TO DO
+    }
+
+    function hideLoadingMessage() {
+      //TO DO
+    }
+
 // Promise function. Fetch function requests the pokemonList from the API
     function loadList() {
+      showLoading();
       return fetch(apiUrl).then(function (response) {
         return response.json();
       }).then(function (json) {
@@ -42,13 +51,16 @@ let pokemonRepository = (function () {
           };
           add(pokemon);
           console.log(pokemon);
+          hideLoadingMessage();
         });
       }).catch(function (e) {
+        hideLoadingMessage();
         console.error(e);
       })
     }
 
     function loadDetails(item) {
+      showLoading();
       let url = item.detailsUrl;
       return fetch(url).then(function (response) {
         return response.json();
@@ -57,7 +69,9 @@ let pokemonRepository = (function () {
         item.imageUrl = details.sprites.front_default;
         item.height = details.height;
         item.types = details.types;
+        hideLoadingMessage();
       }).catch(function (e) {
+        hideLoadingMessage();
         console.error(e);
       });
     }

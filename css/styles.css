@@ -47,6 +47,9 @@ button.button-class {
 button.button-class:hover {
   background-color: #cd6621;
 }
+button.button-class:focus {
+  background-color: #6b2c02;
+}
 
 /* Media query for smaller screens */
 @media (max-width: 768px) {
