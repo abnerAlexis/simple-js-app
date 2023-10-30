@@ -30,13 +30,17 @@ let pokemonRepository = (function () {
     });
   }
 
+  //Loaedin message(gif img) as page is load.
   function showLoadingMessage() {
-    console.log("Loading");
+    var img = document.createElement("img");  
+    img.src = "./img/loader.gif"; 
+    var src = document.getElementById("loader"); 
+    src.appendChild(img); 
   }
 
-  //Done message is to test
+  //Loading message(gif img) gets dissapeared  when loading is done.
   function hideLoadingMessage() {
-    console.log("Done!");
+    document.getElementById("loader").style.display = "none";
   }
 
   // Promise function. Fetch function requests the pokemonList from the API
@@ -106,4 +110,3 @@ pokemonRepository.loadList().then(function () {
     pokemonRepository.addListItem(pokemon);
   });
 });
-
