@@ -121,7 +121,7 @@ function showModal(pokemon) {
     //Create button to close modal display
     let closeButtonElement = document.createElement('button');
     closeButtonElement.classList.add('modal-close');
-    closeButtonElement.innerText = 'Close';
+    closeButtonElement.innerText = 'X';
     closeButtonElement.addEventListener('click', hideModal);
     modal.appendChild(closeButtonElement);
 

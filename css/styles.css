@@ -106,14 +106,17 @@ button.button-class:focus {
 
 .modal-close {
   float: right;
-  width: 90px;
+  width: 40px;
+  background-color: #b93100;
+  color: white;
+  font-weight: 600;
+  font-size: 36px;
   -webkit-appearance: none;
-  border: 1px solid brown;
+  border: 1px solid;
   padding: 0;
   margin: 0;
-  background: none;
-  color: #777;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .modal h1 {
@@ -132,4 +135,8 @@ button.button-class:focus {
 
 #modal-container.is-visible {
   display: block;
+}
+
+.modal-close:hover {
+  background-color: #8a0d09;
 }
