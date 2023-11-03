@@ -1,3 +1,6 @@
+//Define modalContainer globally
+let modalContainer = document.querySelector('#modal-container');
+
 //Array of pokemon objects
 let pokemonRepository = (function () {
   let pokemonList = [];
@@ -24,6 +27,11 @@ let pokemonRepository = (function () {
     button.innerText = pokemon.name;
     button.classList.add("button-class");
     listpokemon.appendChild(button);
+    // TO DO - CLICK should open the modal
+    button.addEventListener('click', () => {
+      showDetails(pokemon);
+    });
+
     pokemonList.appendChild(listpokemon);
     button.addEventListener('click', function (event) {
       showDetails(pokemon);
@@ -83,7 +91,7 @@ let pokemonRepository = (function () {
 
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function () {
-      console.log(pokemon);
+      showModal(pokemon);
     });
   }
 
@@ -97,16 +105,59 @@ let pokemonRepository = (function () {
   };
 })();
 
-// pokemonRepository.add ({
-//   name: "Pikachu",
-//   height: 0.4,
-//   types: "electric",
-//   abilities: ["Static", "Lightning Rod"],
-// });
-
 pokemonRepository.loadList().then(function () {
   // Now the data is loaded!
   pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
   });
+});
+
+function showModal(pokemon) {
+  modalContainer.innerHTML = '';
+    let modal = document.createElement('div');
+    modal.classList.add('modal');
+    modalContainer.appendChild(modal);
+
+    //Create button to close modal display
+    let closeButtonElement = document.createElement('button');
+    closeButtonElement.classList.add('modal-close');
+    closeButtonElement.innerText = 'Close';
+    closeButtonElement.addEventListener('click', hideModal);
+    modal.appendChild(closeButtonElement);
+
+    //Create h1 element for pokemon name
+    let titleElement = document.createElement('h1');
+    titleElement.innerText = pokemon.name.toUpperCase(); //Convert name to uppercase
+    modal.appendChild(titleElement);
+
+    //Create p for pokemon's height
+    let contentElement = document.createElement('p');
+    contentElement.innerText = "His Height: " + pokemon.height;
+    modal.appendChild(contentElement);
+
+    //Create img element for pokemon image
+    let imageElement = document.createElement('img');
+    imageElement.src = pokemon.imageUrl;
+    modal.appendChild(imageElement);
+
+    modalContainer.classList.add('is-visible');
+}
+
+function hideModal() {
+  modalContainer.classList.remove('is-visible');
+}
+
+//Modal gets closed if user press Esc key.
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+    hideModal();  
+  }
+});
+
+//Modal gets closed if the user clicks directly on the overlay
+modalContainer.addEventListener('click', (e) => {
+  let target = e.target;
+  if (target === modalContainer) {
+    hideModal();
+  }
 });
