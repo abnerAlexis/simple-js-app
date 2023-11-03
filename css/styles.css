@@ -6,7 +6,7 @@ body {
   background-color: #000;
 }
 
-h1 {
+.app-name {
   background-color: rgb(243, 204, 158);
   color: rgb(56, 28, 8);
   font-size: 50px;
@@ -113,16 +113,17 @@ button.button-class:focus {
   font-weight: 600;
   font-size: 36px;
   -webkit-appearance: none;
-  border: 1px solid;
+  border: none;
   padding: 0;
   margin: 0;
   text-decoration: none;
   cursor: pointer;
 }
 
-.modal h1 {
-  margin-top: 0;
-  background-color: bisque;
+.pokemon-name {
+  margin-top: 50px;
+  background-color: none;
+  font-size: 50px;
 }
 
 .modal p {

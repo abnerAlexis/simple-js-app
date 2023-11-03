@@ -128,6 +128,7 @@ function showModal(pokemon) {
   //Create h1 element for pokemon name
   let titleElement = document.createElement('h1');
   titleElement.innerText = pokemon.name.toUpperCase(); //Convert name to uppercase
+  titleElement.classList.add('pokemon-name')
   modal.appendChild(titleElement);
 
   //Create p for pokemon's height
