@@ -40,10 +40,10 @@ let pokemonRepository = (function () {
 
   //Loaedin message(gif img) as page is load.
   function showLoadingMessage() {
-    var img = document.createElement("img");  
-    img.src = "./img/loader.gif"; 
-    var src = document.getElementById("loader"); 
-    src.appendChild(img); 
+    var img = document.createElement("img");
+    img.src = "./img/loader.gif";
+    var src = document.getElementById("loader");
+    src.appendChild(img);
   }
 
   //Loading message(gif img) gets dissapeared  when loading is done.
@@ -114,34 +114,34 @@ pokemonRepository.loadList().then(function () {
 
 function showModal(pokemon) {
   modalContainer.innerHTML = '';
-    let modal = document.createElement('div');
-    modal.classList.add('modal');
-    modalContainer.appendChild(modal);
+  let modal = document.createElement('div');
+  modal.classList.add('modal');
+  modalContainer.appendChild(modal);
 
-    //Create button to close modal display
-    let closeButtonElement = document.createElement('button');
-    closeButtonElement.classList.add('modal-close');
-    closeButtonElement.innerText = 'X';
-    closeButtonElement.addEventListener('click', hideModal);
-    modal.appendChild(closeButtonElement);
+  //Create button to close modal display
+  let closeButtonElement = document.createElement('button');
+  closeButtonElement.classList.add('modal-close');
+  closeButtonElement.innerText = 'X';
+  closeButtonElement.addEventListener('click', hideModal);
+  modal.appendChild(closeButtonElement);
 
-    //Create h1 element for pokemon name
-    let titleElement = document.createElement('h1');
-    titleElement.innerText = pokemon.name.toUpperCase(); //Convert name to uppercase
-    modal.appendChild(titleElement);
+  //Create h1 element for pokemon name
+  let titleElement = document.createElement('h1');
+  titleElement.innerText = pokemon.name.toUpperCase(); //Convert name to uppercase
+  modal.appendChild(titleElement);
 
-    //Create p for pokemon's height
-    let contentElement = document.createElement('p');
-    contentElement.innerText = "His Height: " + pokemon.height;
-    modal.appendChild(contentElement);
+  //Create p for pokemon's height
+  let contentElement = document.createElement('p');
+  contentElement.innerText = "His Height: " + pokemon.height;
+  modal.appendChild(contentElement);
 
-    //Create img element for pokemon image
-    let imageElement = document.createElement('img');
-    imageElement.src = pokemon.imageUrl;
-    imageElement.classList.add('pokemon-img');
-    modal.appendChild(imageElement);
+  //Create img element for pokemon image
+  let imageElement = document.createElement('img');
+  imageElement.src = pokemon.imageUrl;
+  imageElement.classList.add('pokemon-img');
+  modal.appendChild(imageElement);
 
-    modalContainer.classList.add('is-visible');
+  modalContainer.classList.add('is-visible');
 }
 
 function hideModal() {
@@ -151,7 +151,7 @@ function hideModal() {
 //Modal gets closed if user press Esc key.
 window.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-    hideModal();  
+    hideModal();
   }
 });
 

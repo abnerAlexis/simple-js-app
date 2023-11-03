@@ -47,6 +47,7 @@ button.button-class {
 button.button-class:hover {
   background-color: #cd6621;
 }
+
 button.button-class:focus {
   background-color: #6b2c02;
 }
@@ -66,7 +67,7 @@ button.button-class:focus {
 #loader {
   position: absolute;
   left: 40%;
-  top: 30%; 
+  top: 30%;
   margin: 0 auto;
 }
 
@@ -83,10 +84,10 @@ button.button-class:focus {
   background: rgba(0, 0, 0, 0.5);
 
   /* to show it above other content */
-  z-index: 999; 
+  z-index: 999;
 
   /* to allow scrolling if the screen is not high enough*/
-  overflow: auto; 
+  overflow: auto;
 
   /* this is used to center the modal */
   display: grid;
