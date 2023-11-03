@@ -138,6 +138,7 @@ function showModal(pokemon) {
     //Create img element for pokemon image
     let imageElement = document.createElement('img');
     imageElement.src = pokemon.imageUrl;
+    imageElement.classList.add('pokemon-img');
     modal.appendChild(imageElement);
 
     modalContainer.classList.add('is-visible');
