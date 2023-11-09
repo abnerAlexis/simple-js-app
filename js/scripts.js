@@ -38,7 +38,7 @@ let pokemonRepository = (function () {
     });
   }
 
-  //Loaedin message(gif img) as page is load.
+  //Loadin message(gif img) as page is load.
   function showLoadingMessage() {
     var img = document.createElement("img");
     img.src = "./img/loader.gif";
@@ -78,10 +78,24 @@ let pokemonRepository = (function () {
     return fetch(url).then(function (response) {
       return response.json();
     }).then(function (details) {
-      // Now we add the details to the item
+      //Add the details to the item
+      // console.log(details);
+      //Image
       item.imageUrl = details.sprites.front_default;
+      //Height
       item.height = details.height;
-      item.types = details.types;
+      //Weight
+      item.weight = details.weight;
+      //Abilities
+      pokemonAbilities = details.abilities.map((el) => el.ability.name);
+      formattedAbilities = pokemonAbilities.map((el) => el.charAt(0).toUpperCase() + el.slice(1));
+      item.abilities = formattedAbilities.join(', ');
+
+      //Types
+      pokemonTypes = details.types.map((el) => el.type.name);
+      formattedTypes = pokemonTypes.map((el) => el.charAt(0).toUpperCase() + el.slice(1));
+      item.types = formattedTypes.join(', ');
+
       hideLoadingMessage();
     }).catch(function (e) {
       hideLoadingMessage();
@@ -131,16 +145,31 @@ function showModal(pokemon) {
   titleElement.classList.add('pokemon-name')
   modal.appendChild(titleElement);
 
-  //Create p for pokemon's height
-  let contentElement = document.createElement('p');
-  contentElement.innerText = "His Height: " + pokemon.height;
-  modal.appendChild(contentElement);
-
   //Create img element for pokemon image
   let imageElement = document.createElement('img');
   imageElement.src = pokemon.imageUrl;
   imageElement.classList.add('pokemon-img');
   modal.appendChild(imageElement);
+
+  //Create p for pokemon's height
+  let contentElement = document.createElement('p');
+  contentElement.innerText = "Height: " + pokemon.height;
+  modal.appendChild(contentElement);
+
+  //Create p for pokemon's weight
+  let contentWeight = document.createElement('p');
+  contentWeight.innerText = "Weight: " + pokemon.weight;
+  modal.appendChild(contentWeight);
+
+   //Create p for pokemon's abilities
+  let contentAbilities = document.createElement('p');
+  contentAbilities.innerText = "His Abilities: " + pokemon.abilities;
+  modal.appendChild(contentAbilities);
+
+  //Create p for pokemon's types
+  let contentTypes = document.createElement('p');
+  contentTypes.innerText = "Types: " + pokemon.types;
+  modal.appendChild(contentTypes);
 
   modalContainer.classList.add('is-visible');
 }
