@@ -8,8 +8,15 @@ body {
   background-color: #000;
 }
 
-#page-title {
+#app-name {
   color: rgb(32, 173, 10);
+  font-family: Verdana, sans-serif;
+  font-size: 26px;
+  padding-top: 0;
+}
+
+#app-navigation {
+  margin-bottom: 30px;
 }
   .row button {
     width: 210px;

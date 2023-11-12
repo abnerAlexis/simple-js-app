@@ -1,5 +1,5 @@
 class Pokemon {
-  URL = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  URL = 'https://pokeapi.co/api/v2/pokemon/?limit=500';
 
   async loadPokemons() {
     const response = await fetch(this.URL);     // Call the API to get the list
@@ -44,10 +44,10 @@ class Pokemon {
         document.getElementById('pokemonDetails').innerHTML =
           '<dl class="row">' +
           '<dt class="col-sm-3">Height</dt>' +
-          `<dd class="col-sm-9">${details.height}</dd>` +
+          `<dd class="col-sm-9">${details.height}ft</dd>` +
           '<span></span>' +
           '<dt class="col-sm-3">Weight</dt>' +
-          `<dd class="col-sm-9">${details.weight}</dd>` +
+          `<dd class="col-sm-9">${details.weight}lbs</dd>` +
           '<span></span>' +
           '<dt class="col-sm-3">Types</dt>' +
           `<dd class="col-sm-9">${details.types}</dd>` +
