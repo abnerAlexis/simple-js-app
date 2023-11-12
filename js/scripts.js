@@ -2,10 +2,11 @@ class Pokemon {
   URL = 'https://pokeapi.co/api/v2/pokemon/?limit=200';
 
   async loadPokemons() {
+    this.showLoadingMessage();
     const response = await fetch(this.URL);     // Call the API to get the list
     const pokemons = await response.json();     // Convert the response to json
     this.pokemonArray = pokemons.results;       // Store name and url for each pokemon
-
+    this.hideLoadingMessage();
     this.processPokemons();
   }
 
@@ -75,6 +76,19 @@ class Pokemon {
       abilities: jsonResponse.abilities.map(pokemon => pokemon.ability.name).join(', '),
       image: jsonResponse.sprites.front_default,
     };
+  }
+
+  //Loaedin message(gif img) as page is load.
+  showLoadingMessage() {
+    var img = document.createElement("img");
+    img.src = "./img/loader.gif";
+    var src = document.getElementById("loader");
+    src.appendChild(img);
+  }
+
+  //Loading message(gif img) gets dissapeared  when loading is done.
+  hideLoadingMessage() {
+    document.getElementById("loader").style.display = "none";
   }
 }
 
