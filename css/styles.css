@@ -1,152 +1,23 @@
-/* Add some basic styling */
+/* * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+} */
+
 body {
-  font-family: Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
   background-color: #000;
 }
 
-.app-name {
-  background-color: rgb(243, 204, 158);
-  color: rgb(56, 28, 8);
-  font-size: 50px;
-  text-align: center;
-  height: 100px;
-  padding: 10px;
-  padding-top: 50px;
+#page-title {
+  color: rgb(32, 173, 10);
 }
-
-hr {
-  border: 2px solid #b93100;
-}
-
-button {
-  margin: 10px;
-  width: 300px;
-  font-size: 26px;
-}
-
-ul.pokemon-list {
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  margin: 5px;
-}
-
-button.button-class {
-  background-color: #b93100;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-button.button-class:hover {
-  background-color: #cd6621;
-}
-
-button.button-class:focus {
-  background-color: #6b2c02;
-}
-
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 36px;
-    padding-top: 30px;
+  .row button {
+    width: 170px;
+    background-color: aliceblue;
+    color: #000;
+    height: 50px;
   }
 
-  button {
-    width: 50%;
+  #pokemonDetails img {
+    width: 70%;
   }
-}
-
-#loader {
-  position: absolute;
-  left: 40%;
-  top: 30%;
-  margin: 0 auto;
-}
-
-/* =============== Modal Display =============== */
-
-#modal-container {
-  position: fixed;
-  padding: 20px;
-  box-sizing: border-box;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-
-  /* to show it above other content */
-  z-index: 999;
-
-  /* to allow scrolling if the screen is not high enough*/
-  overflow: auto;
-
-  /* this is used to center the modal */
-  display: grid;
-  text-align: center;
-}
-
-.modal {
-  margin: auto;
-  display: inline-block;
-  box-sizing: border-box;
-  background: #f49643;
-  padding: 15px;
-  width: 100%;
-  max-width: 500px;
-  text-align: left;
-}
-
-.modal-close {
-  float: right;
-  width: 40px;
-  background-color: #b93100;
-  color: white;
-  font-weight: 600;
-  font-size: 36px;
-  -webkit-appearance: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.pokemon-name {
-  margin-top: 50px;
-  background-color: none;
-  font-size: 50px;
-  text-align: center;
-}
-
-.modal p {
-  margin-bottom: 0;
-  font-size: 30px;
-}
-
-#modal-container {
-  display: none;
-}
-
-#modal-container.is-visible {
-  display: block;
-}
-
-.modal-close:hover {
-  background-color: #8a0d09;
-}
-
-.pokemon-img {
-  margin: auto;
-  display: block;
-  width: 250px;
-  height: auto;
-}
