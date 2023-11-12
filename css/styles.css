@@ -1,8 +1,8 @@
-/* * {
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-} */
+}
 
 body {
   background-color: #000;
@@ -12,10 +12,11 @@ body {
   color: rgb(32, 173, 10);
 }
   .row button {
-    width: 170px;
+    width: 210px;
     background-color: aliceblue;
     color: #000;
     height: 50px;
+    font-size: 20px;
   }
 
   #pokemonDetails img {

@@ -2,79 +2,79 @@ class Pokemon {
   URL = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   async loadPokemons() {
-      const response = await fetch(this.URL);     // Call the API to get the list
-      const pokemons = await response.json();     // Convert the response to json
-      this.pokemonArray = pokemons.results;       // Store name and url for each pokemon
+    const response = await fetch(this.URL);     // Call the API to get the list
+    const pokemons = await response.json();     // Convert the response to json
+    this.pokemonArray = pokemons.results;       // Store name and url for each pokemon
 
-      this.processPokemons();
+    this.processPokemons();
   }
 
   processPokemons() {
-      // Process pokemons. Create buttons and eventListeners and
-      // add them in the pokemonButtons
-      const pokemonButtons = document.getElementById('pokemonButtons');
-      this.pokemonArray.forEach(pokemon => pokemonButtons.appendChild(this.createButton(pokemon)));
+    // Process pokemons. Create buttons and eventListeners and
+    // add them in the pokemonButtons
+    const pokemonButtons = document.getElementById('pokemonButtons');
+    this.pokemonArray.forEach(pokemon => pokemonButtons.appendChild(this.createButton(pokemon)));
   }
 
   createButton(pokemon) {
-      //create button
-      const button = document.createElement('button');
+    //create button
+    const button = document.createElement('button');
 
-      //Setting up the button attributes
-      button.setAttribute('type', 'button');
-      button.setAttribute('class', 'btn btn-primary');
-      button.setAttribute('data-bs-toggle', 'modal');
-      button.setAttribute('data-bs-target', '#pokemon-modal');
+    //Setting up the button attributes
+    button.setAttribute('type', 'button');
+    button.setAttribute('class', 'btn btn-primary');
+    button.setAttribute('data-bs-toggle', 'modal');
+    button.setAttribute('data-bs-target', '#pokemon-modal');
 
-      //Setting up button labels
-      button.innerText = pokemon.name;
-      button.addEventListener('click', this.modalBodyContent(pokemon));            
-      return button;
+    //Setting up button labels
+    button.innerText = pokemon.name;
+    button.addEventListener('click', this.modalBodyContent(pokemon));
+    return button;
   }
 
   modalBodyContent(pokemon) {
-      // We need to return another function so that this method will not be rendered
-      // when we load the page.
-      return () => {
-          document.getElementById('modalLabel').innerHTML = pokemon.name;
-          document.getElementById('pokemonDetails').innerHTML = "";
+    // We need to return another function so that this method will not be rendered
+    // when we load the page.
+    return () => {
+      document.getElementById('modalLabel').innerHTML = pokemon.name;
+      document.getElementById('pokemonDetails').innerHTML = "";
 
-          // Make the call for details and set the information in the modal
-          this.getPokemonDetails(pokemon).then((details) => {
-              document.getElementById('pokemonDetails').innerHTML = 
-              '<dl class="row">' +
-              '<dt class="col-sm-3">Height</dt>' + 
-              `<dd class="col-sm-9">${details.height}</dd>` +
-              '<span></span>' +
-              '<dt class="col-sm-3">Weight</dt>' + 
-              `<dd class="col-sm-9">${details.weight}</dd>` +
-              '<span></span>' +
-              '<dt class="col-sm-3">Types</dt>' + 
-              `<dd class="col-sm-9">${details.types}</dd>` +
-              '<span></span>' +
-              '<dt class="col-sm-3">Abilities</dt>' + 
-              `<dd class="col-sm-9">${details.abilities}</dd>` +
-              '<span></span>' +
+      // Make the call for details and set the information in the modal
+      this.getPokemonDetails(pokemon).then((details) => {
+        document.getElementById('pokemonDetails').innerHTML =
+          '<dl class="row">' +
+          '<dt class="col-sm-3">Height</dt>' +
+          `<dd class="col-sm-9">${details.height}</dd>` +
+          '<span></span>' +
+          '<dt class="col-sm-3">Weight</dt>' +
+          `<dd class="col-sm-9">${details.weight}</dd>` +
+          '<span></span>' +
+          '<dt class="col-sm-3">Types</dt>' +
+          `<dd class="col-sm-9">${details.types}</dd>` +
+          '<span></span>' +
+          '<dt class="col-sm-3">Abilities</dt>' +
+          `<dd class="col-sm-9">${details.abilities}</dd>` +
+          '<span></span>' +
 
-              `<dd class="col"><div class="text-center"><img src="${details.image}" /></div></dd>` +
-              '</dl>';
-          });
-          
-      };
+          `<dd class="col"><div class="text-center"><img src="${details.image}" /></div></dd>` +
+          '</dl>';
+      });
+
+    };
   }
 
   async getPokemonDetails(pokemon) {
-      const response = await fetch(pokemon.url);      // Call pokemon.url to get the details
-      const jsonResponse = await response.json(); // Convert the response to json
+    const response = await fetch(pokemon.url);      // Call pokemon.url to get the details
+    const jsonResponse = await response.json(); // Convert the response to json
 
-      return {
-          name: jsonResponse.name,
-          height: jsonResponse.height,
-          weight: jsonResponse.weight,
-          types: jsonResponse.types.map(pokemon => pokemon.type.name).join(', '),
-          abilities: jsonResponse.abilities.map(pokemon => pokemon.ability.name).join(', '),
-          image: jsonResponse.sprites.front_default,
-      };   
+    return {
+      name: jsonResponse.name,
+      height: jsonResponse.height,
+      weight: jsonResponse.weight,
+      types: jsonResponse.types.map(pokemon => pokemon.type.name).join(', '),
+      abilities: jsonResponse.abilities.map(pokemon => pokemon.ability.name).join(', '),
+      image: jsonResponse.sprites.front_default,
+    };
   }
 }
 
