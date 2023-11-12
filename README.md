@@ -49,5 +49,4 @@ if (typeof window !== 'undefined') {
   console.log('You are on the server')
 }
 ```
-* Because of this issue, I couldn't use document.write(). It looks like I'm on the server.
 
