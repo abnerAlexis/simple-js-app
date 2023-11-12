@@ -1,5 +1,5 @@
 class Pokemon {
-  URL = 'https://pokeapi.co/api/v2/pokemon/?limit=500';
+  URL = 'https://pokeapi.co/api/v2/pokemon/?limit=200';
 
   async loadPokemons() {
     const response = await fetch(this.URL);     // Call the API to get the list
