@@ -23,26 +23,26 @@ body {
 #app-navigation {
   margin-bottom: 30px;
 }
-  .row button {
-    width: 210px;
-    background-color: #f8f9fa;
-    color: #000;
-    height: 50px;
-    font-size: 20px;
-  }
+.row button {
+  width: 210px;
+  background-color: #f8f9fa;
+  color: #000;
+  height: 50px;
+  font-size: 20px;
+}
 
-  #loader {
-    position: absolute;
-    left: 40%;
-    top: 30%;
-    margin: 0 auto;
-  }
+#loader {
+  position: absolute;
+  left: 40%;
+  top: 30%;
+  margin: 0 auto;
+}
 
-  .row button:hover {
-    background-color: rgb(6, 2, 61);
-    border: 2px solid;
-  }
+.row button:hover {
+  background-color: rgb(6, 2, 61);
+  border: 2px solid;
+}
 
-  #pokemonDetails img {
-    width: 55%;
-  }
+#pokemonDetails img {
+  width: 50%;
+}
